@@ -1,0 +1,68 @@
+
+<ion-content adding class="background">
+    <div>
+    <ion-buttons slot="start" style="position: relative;top:18px;left:20px">
+        <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons class="posi-add">
+        <ion-icon name="add-circle-outline"  style="height: 26px;width: 26px" (click)="add_device()"></ion-icon>
+    </ion-buttons>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 style="position: relative;left: 30%">Mes appareils</h2>
+                <ul >
+                    <div  *ngFor="let d of this.devices">
+
+                        <ion-card  style="positi:relative ;top:-50%;left: -5%" color="orange" *ngIf="d.status === 'unknown'" >
+                            <div style="position: relative;top:9px;left: 9px; width:15px;height:15px;background-color:orange;"></div>
+                            <h3 style="position: relative;left: 50px" [ngStyle]="{color: 'white'}">Appareil : {{ d.name }}
+                                    <span class="glyphicon glyphicon-minus"></span>
+                            </h3>
+                            <h3 style="position: relative;left: 50px" [ngStyle]="{color: 'white'}">Statut :{{d.status  }}
+                                <span class="glyphicon glyphicon-minus"></span>
+                            </h3>
+                            <ion-icon style="position: relative;top:200%;left:90%;width:25px;height:25px;"
+                                      color="danger" name="close-circle" (click)="onDelete_device(d.id)"></ion-icon>
+
+                              <ion-icon name="fastforward" (click)="route(d.id)"> </ion-icon>
+                              <p style="position: relative;top: -33px;left: 50px"> itinéraire</p>
+                        </ion-card>
+
+                        <ion-card style="positi:relative ;top:-50%;left: -5%" color="greenyellow" *ngIf="d.status === 'online'" >
+                            <div style="position: relative;top:9px;left: 9px; width:15px;height:15px; background-color:greenyellow;"></div>
+                            <h3 style="position: relative;left: 50px"[ngStyle]="{color: getColor(d.status)}">Appareil : {{ d.name }}
+                            </h3>
+                            <h3 style="position: relative;left: 50px"[ngStyle]="{color: getColor(d.status)}">Statut : {{d.status  }}
+                            </h3>
+                            <ion-icon style="position: relative;top:200%;left:90%;width:25px;height:25px;"
+                                      color="danger" name="close-circle" (click)="onDelete_device(d.id)"></ion-icon>
+                            <ion-icon name="fastforward" (click)="route(d.id)"> </ion-icon>
+                            <p style="position: relative;top: -33px;left: 50px"> itinéraire</p>
+                        </ion-card>
+
+                        <ion-card style="positi:relative ;top:-50%;left: -5%" color="darkred" *ngIf="d.status === 'offline'" >
+                            <div style="position: relative;top:9px;left: 9px; width:15px;height:15px;background-color:red;"></div>
+                            <h3 style="position: relative;left: 50px"[ngStyle]="{color: 'white'}">Appareil :{{ d.name }}
+                            </h3>
+                            <h3 style="position: relative;left: 50px"[ngStyle]="{color: 'white'}">Statut :{{  d.status  }}
+                            </h3>
+                            <ion-icon style="position: relative;top:200%;left:90%;width:25px;height:25px;"
+                                      color="danger" name="close-circle" (click)="onDelete_device(d.id)"></ion-icon>
+                            <ion-icon name="fastforward"(click)="route(d.id)"> </ion-icon>
+                            <p style="position: relative;top: -33px;left: 50px"> itinéraire</p>
+                        </ion-card>
+
+
+                    </div>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+</ion-content>

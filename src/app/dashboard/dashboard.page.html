@@ -1,0 +1,33 @@
+<ion-toolbar>
+    <ion-buttons slot="start" style="position: relative;top:5px;left:20px">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons >
+        <ion-icon  name="locate" class="posi-locate" (click)="Find_Me()"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+
+    </ion-title>
+</ion-toolbar>
+
+<ion-content>
+    <ion-content>
+        <div id="map" style="width:100%; height:75%;"></div>
+
+        <div  *ngFor="let d of this.devices">
+            <ion-grid  (click)="goViewdetails(d.id.toString())">
+                <ion-row>
+                    <ion-col>
+                        <div style="background-color:lightblue">{{d.name}}</div>
+                    </ion-col>
+                    <ion-col >
+                        <div [ngStyle]="{background: getColor(d.status)}">{{ d.status}}</div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+
+    </ion-content>
+
+
+</ion-content>

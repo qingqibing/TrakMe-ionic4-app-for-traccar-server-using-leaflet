@@ -1,0 +1,52 @@
+
+
+  <ion-content  padding class="background">
+      <div>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+      </div>
+
+      <div  padding-top style="position: relative; top:40px">
+
+          <ion-avatar class="user-photo">
+              <img [src]="'/assets/images/noavatar.png'">
+          </ion-avatar>
+      </div>
+
+       <ion-card style="position: relative; top:90px">
+          <ion-item>
+              <ion-icon name="person" slot="start"></ion-icon>
+              <ion-label>
+                  <p class="parag">Display Name</p>
+                  <h2 class="h2style"> {{user?.name }}</h2>
+              </ion-label>
+          </ion-item>
+       </ion-card>
+      <ion-card style="position: relative; top: 110px">
+          <ion-item>
+              <ion-icon name="mail" slot="start"></ion-icon>
+              <ion-label>
+                  <p class="parag">Email</p>
+                  <h2 class="h2style">{{user?.email}}</h2>
+              </ion-label>
+          </ion-item>
+      </ion-card>
+      <ion-card style="position: relative; top: 130px">
+          <ion-item>
+              <ion-icon name="key" slot="start"></ion-icon>
+              <ion-label>
+                  <p class="parag">Authentification</p>
+                  <h2 class="h2style">Utilisateur</h2>
+              </ion-label>
+          </ion-item>
+      </ion-card>
+      <ion-card style="position: relative; top: 150px">
+          <ion-item (click)="logout()">
+              <ion-icon slot="start" name="log-out"></ion-icon>
+              <ion-label>
+                  <p class="parag">LogOut</p>
+              </ion-label>
+          </ion-item>
+      </ion-card>
+  </ion-content>
